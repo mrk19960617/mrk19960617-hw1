@@ -146,3 +146,33 @@ DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS actors;
 DROP TABLE IF EXISTS studios;
+
+--The second step we want to do is create each table we will be using
+
+CREATE TABLE studios (
+    studio_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE movies (
+    movie_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    year_released INTEGER NOT NULL,
+    mpaa_rating TEXT NOT NULL,
+    studio_id INTEGER NOT NULL,
+    FOREIGN KEY (studio_id) REFERENCES studios (studio_id)
+);
+
+CREATE TABLE actors (
+    actor_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE roles (
+    role_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    movie_id INTEGER NOT NULL,
+    actor_id INTEGER NOT NULL,
+    character_name TEXT NOT NULL,
+    FOREIGN KEY (movie_id) REFERENCES movies (movie_id),
+    FOREIGN KEY (actor_id) REFERENCES actors (actor_id)
+);
