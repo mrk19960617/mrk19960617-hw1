@@ -137,3 +137,12 @@
 
 -- The SQL statement for the cast output
 -- TODO!
+
+
+---- Drops existing tables, so we start fresh with each. Additionally we will want to create 4 tables which will be movies, studios, actors, and roles. 
+--Start off dropping tables if they exist:
+
+DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS actors;
+DROP TABLE IF EXISTS studios;
