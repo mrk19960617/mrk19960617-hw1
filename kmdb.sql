@@ -213,7 +213,7 @@ INSERT INTO roles (movie_id, actor_id, character_name)
 VALUES
 (1, 1, 'Bruce Wayne'),
 (1, 2, 'Alfred'),
-(1, 3, 'Ra\'s Al Ghul'),
+(1, 3, 'Ras Al Ghul'),
 (1, 4, 'Rachel Dawes'),
 (1, 5, 'Commissioner Gordon'),
 (2, 1, 'Bruce Wayne'),
@@ -227,3 +227,24 @@ VALUES
 (3, 10, 'John Blake'),
 (3, 11, 'Selina Kyle');
 
+--Movie report 
+
+SELECT 
+    movies.title AS "Movie", 
+    movies.year_released AS "Year Released", 
+    movies.mpaa_rating AS "MPAA Rating", 
+    studios.name AS "Studio"
+FROM movies
+JOIN studios ON movies.studio_id = studios.studio_id
+ORDER BY movies.year_released;
+
+--Cast 
+
+SELECT 
+    movies.title AS movie,        
+    actors.name AS actor,         
+    roles.character_name          
+FROM roles                        
+JOIN actors ON roles.actor_id = actors.actor_id  
+JOIN movies ON roles.movie_id = movies.movie_id 
+ORDER BY movies.title, roles.character_name;    
