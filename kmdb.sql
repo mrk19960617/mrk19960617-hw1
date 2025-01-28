@@ -210,7 +210,7 @@ VALUES
 --Populate roles table
 
 INSERT INTO roles (movie_id, actor_id, character_name)
-VALUES 
+VALUES
 (1, 1, 'Bruce Wayne'),
 (1, 2, 'Alfred'),
 (1, 3, 'Ra\'s Al Ghul'),
@@ -226,3 +226,4 @@ VALUES
 (3, 9, 'Bane'),
 (3, 10, 'John Blake'),
 (3, 11, 'Selina Kyle');
+
